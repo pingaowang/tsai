@@ -4,7 +4,7 @@ from tsai.all import *
 import sklearn.metrics as skm
 from utils.loss.FocalLoss import FocalLoss
 
-BS = 512
+BS = 1024
 DROP_OUT = .3
 
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
@@ -31,7 +31,7 @@ dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
 dls = TSDataLoaders.from_dsets(
     dsets.train,
     dsets.valid,
-    bs=[BS, BS * 1],
+    bs=[BS, BS * 2],
     batch_tfms=[TSStandardize()],
     num_workers=10
 )
@@ -49,8 +49,8 @@ learn.loss_func = FocalLoss(alpha=0.25, gamma=2.0)
 # learn.save('stage1')
 # learn.load('stage2')
 learn.load('stage4')
-learn.fit_one_cycle(25, lr_max=6.30957365501672e-04)
-learn.save('stage5_focalloss_lrmax6e-4')
+learn.fit_one_cycle(25, lr_max=6.30957365501672e-05)
+learn.save('stage5_focalloss_lrmax6e-5')
 learn.save_all(path='export', dls_fname='dls', model_fname='model', learner_fname='learner')
 learn.show_results()
 
