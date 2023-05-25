@@ -6,7 +6,7 @@ from utils.loss.FocalLoss import FocalLoss
 
 BS = 1024 * 8
 DROP_OUT = .3
-LR_MAX = 6.30957365501672e-04
+LR_MAX = 6.30957365501672e-03
 
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
 # shape: n_data, n_channels, data_length
