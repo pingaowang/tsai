@@ -7,7 +7,7 @@ from utils.loss.FocalLoss import FocalLoss
 BS = 512
 DROP_OUT = .3
 
-root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v2"
+root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
 # shape: n_data, n_channels, data_length
 X_train = np.load(os.path.join(root_dataset, "train_data.npy"))
 y_train = np.load(os.path.join(root_dataset, "train_label.npy"))
