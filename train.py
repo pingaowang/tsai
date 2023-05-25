@@ -7,7 +7,7 @@ from utils.loss.FocalLoss import FocalLoss
 N_EPOCH = 60
 BS = 1024 * 8
 DROP_OUT = .3
-LR_MAX = 1e-03
+LR_MAX = 1e-04
 
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
 # shape: n_data, n_channels, data_length
