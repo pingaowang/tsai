@@ -4,6 +4,9 @@ from tsai.all import *
 import sklearn.metrics as skm
 from utils.loss.FocalLoss import FocalLoss
 
+BS = 512
+DROP_OUT = .3
+
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v2"
 # shape: n_data, n_channels, data_length
 X_train = np.load(os.path.join(root_dataset, "train_data.npy"))
@@ -28,13 +31,13 @@ dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
 dls = TSDataLoaders.from_dsets(
     dsets.train,
     dsets.valid,
-    bs=[16, 32],
+    bs=[BS, BS * 1],
     batch_tfms=[TSStandardize()],
-    num_workers=0
+    num_workers=10
 )
 
 # model = InceptionTime(dls.vars, dls.c)
-model = TST(dls.vars, dls.c, dls.len, dropout=.3)
+model = TST(dls.vars, dls.c, dls.len, dropout=DROP_OUT)
 learn = Learner(
     dls,
     model,
