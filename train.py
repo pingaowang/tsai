@@ -6,6 +6,7 @@ from utils.loss.FocalLoss import FocalLoss
 
 BS = 1024 * 8
 DROP_OUT = .3
+LR_MAX = 6.30957365501672e-04
 
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
 # shape: n_data, n_channels, data_length
@@ -49,8 +50,8 @@ learn.loss_func = FocalLoss(alpha=0.25, gamma=2.0)
 # learn.save('stage1')
 # learn.load('stage2')
 learn.load('stage4')
-learn.fit_one_cycle(25, lr_max=6.30957365501672e-05)
-learn.save('stage5_focalloss_lrmax6e-5')
+learn.fit_one_cycle(25, lr_max=LR_MAX)
+learn.save('stage5_focalloss_lrmax6e-4')
 learn.save_all(path='export', dls_fname='dls', model_fname='model', learner_fname='learner')
 learn.show_results()
 
