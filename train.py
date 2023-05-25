@@ -4,7 +4,7 @@ from tsai.all import *
 import sklearn.metrics as skm
 from utils.loss.FocalLoss import FocalLoss
 
-BS = 1024
+BS = 1024 * 8
 DROP_OUT = .3
 
 root_dataset = "data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3"
