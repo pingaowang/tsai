@@ -59,8 +59,9 @@ X, y, splits = combine_split_data(
 )
 
 # Data augmentation
-aug = [TSMagScale(), TSMagWarp(), TSTimeWarp()]
-batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH), TSRandomCropPad(), *aug]
+# aug = [TSMagScale(), TSMagWarp(), TSTimeWarp()]
+# batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH), TSRandomCropPad(), *aug]
+batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH)]
 
 tfms = [None, [Categorize()]]
 dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
