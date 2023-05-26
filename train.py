@@ -38,7 +38,7 @@ with open(os.path.join(args.log_folder, args.exp_name, "args_info.txt"), "w") as
     file.write("Args:\n")
     for arg in vars(args):
         file.write(f"{arg}: {getattr(args, arg)}\n")
-
+file.close()
 
 
 N_EPOCH = args.n_epoch
