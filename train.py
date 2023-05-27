@@ -63,9 +63,9 @@ aug = [
     TSMagWarp(p=0.5, magnitude=0.1),
     TSTimeWarp(p=0.5, magnitude=0.1),
     TSMagMulNoise(magnitude=0.1),
-    TSBlur(window_size=5, sigma=2),
-    TSSmooth(window_length=7, polyorder=2),
-    TSInputDropout(p=0.1)
+    TSBlur(magnitude=0.1),
+    TSSmooth(magnitude=0.1),
+    TSInputDropout(magnitude=0.1)
 ]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(magnitude=0.2), *aug]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, )]
