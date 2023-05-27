@@ -67,11 +67,12 @@ aug = [
     # TSSmooth(magnitude=0.1),
     # TSInputDropout(magnitude=0.1)
     TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)),
-    TSRandomCropPad(magnitude=0.2)
+    # TSRandomCropPad(magnitude=0.2),
+    # TSIdentity
 ]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(magnitude=0.2), *aug]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, )]
-batch_tfms = [TSIdentity, TSStandardize(), *aug]
+batch_tfms = [TSStandardize(), *aug]
 
 tfms = [None, [Categorize()]]
 dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
