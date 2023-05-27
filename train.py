@@ -59,7 +59,7 @@ X, y, splits = combine_split_data(
 
 # Data augmentation
 aug = [TSMagScale(0.2, 1), TSMagWarp(), TSTimeWarp()]
-batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(), *aug]
+batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(), *aug]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, )]
 batch_tfms = [TSStandardize(), *aug]
 
