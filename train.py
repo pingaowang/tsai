@@ -72,7 +72,8 @@ aug = [
 ]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(magnitude=0.2), *aug]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, )]
-batch_tfms = [TSStandardize(), *aug]
+# batch_tfms = [TSStandardize(), *aug]
+batch_tfms = [TSStandardize()]
 
 tfms = [None, [Categorize()]]
 dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
