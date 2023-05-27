@@ -38,7 +38,6 @@ with open(os.path.join(args.log_folder, args.exp_name, "args_info.txt"), "w") as
     file.write("Args:\n")
     for arg in vars(args):
         file.write(f"{arg}: {getattr(args, arg)}\n")
-file.close()
 
 
 N_EPOCH = args.n_epoch
@@ -61,7 +60,7 @@ X, y, splits = combine_split_data(
 # Data augmentation
 # aug = [TSMagScale(), TSMagWarp(), TSTimeWarp()]
 # batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH), TSRandomCropPad(), *aug]
-batch_tfms = [TSStandardize(by_sample=True), TSRandomResizedCrop(size=DATA_LENGTH)]
+batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH)]
 
 tfms = [None, [Categorize()]]
 dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
