@@ -66,7 +66,7 @@ aug = [
     # TSBlur(magnitude=0.1),
     # TSSmooth(magnitude=0.1),
     # TSInputDropout(magnitude=0.1)
-    TSRandomResizedCrop(magnitude=0.2),
+    TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)),
     TSRandomCropPad(magnitude=0.2)
 ]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(magnitude=0.2), *aug]
