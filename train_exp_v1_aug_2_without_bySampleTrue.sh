@@ -1,0 +1,1 @@
+/opt/conda/envs/tsai/bin/python train.py --exp_name v1_aug_stage8 --load_model_name stage7_focalloss_lrmax1e-3 --lr_max 1e-4 --bs 8192 --n_epoch 120
