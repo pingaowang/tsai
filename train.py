@@ -62,9 +62,9 @@ aug = [
     TSMagScale(p=0.2, magnitude=0.2),
     TSMagWarp(p=0.5, magnitude=0.1),
     TSTimeWarp(p=0.5, magnitude=0.1),
-    # TSMagMulNoise(magnitude=0.1),
-    TSBlur(magnitude=0.1),
-    TSSmooth(magnitude=0.1),
+    TSMagMulNoise(magnitude=0.1),
+    # TSBlur(magnitude=0.1),
+    # TSSmooth(magnitude=0.1),
     # TSInputDropout(magnitude=0.1)
     TSRandomResizedCrop(magnitude=0.2),
     TSRandomCropPad(magnitude=0.2)
