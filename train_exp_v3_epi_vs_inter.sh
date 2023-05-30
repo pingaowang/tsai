@@ -1,2 +1,2 @@
 #/opt/conda/envs/tsai/bin/python train.py --exp_name epi_vs_inter_1 --root_data data/dataset_TimeSeries_SlideWindow_cls_EpiVsInter_v1 --load_model_name 0 --lr_max 1e-3 --bs 8192 --n_epoch 150
-/opt/conda/envs/tsai/bin/python train.py --exp_name epi_vs_inter_2 --root_data data/dataset_TimeSeries_SlideWindow_cls_EpiVsInter_v1 --load_model_name epi_vs_inter_1_stored --lr_max 1e-4 --bs 8192 --n_epoch 60
+/opt/conda/envs/tsai/bin/python train.py --exp_name epi_vs_inter_1 --root_data data/dataset_TimeSeries_SlideWindow_cls_EpiVsInter_v1 --load_model_name epi_vs_inter_1_stored --lr_max 1e-4 --bs 8192 --n_epoch 60
