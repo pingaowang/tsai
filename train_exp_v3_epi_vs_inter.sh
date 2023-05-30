@@ -1,0 +1,1 @@
+/opt/conda/envs/tsai/bin/python train.py --exp_name epi_vs_inter_1 --root_data data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v4 --load_model_name 0 --lr_max 1e-3 --bs 8192 --n_epoch 150

@@ -23,6 +23,7 @@ parser.add_argument('--lr_max', default=1e-3, type=float, help='learning rate')
 parser.add_argument('--bs', default=1024 * 8, type=int, help='batch size')
 parser.add_argument('--dropout', default=0.3, type=float, help='p dropout')
 parser.add_argument('--n_epoch', default=60, type=int, help='epoch number')
+parser.add_argument('--shut_down_tt_std', dest='TSStandardize', action='store_false')
 
 parser.add_argument('--data_length', default=40, type=int, help='data length of the dataset.')
 
@@ -72,8 +73,13 @@ aug = [
 ]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, scale=(0.05, 0.95)), TSRandomCropPad(magnitude=0.2), *aug]
 # batch_tfms = [TSStandardize(), TSRandomResizedCrop(size=DATA_LENGTH, )]
-batch_tfms = [TSStandardize(), *aug]
+# batch_tfms = [TSStandardize(), *aug]
 # batch_tfms = [TSStandardize()]
+
+if args.TSStandardize:
+    batch_tfms = [TSStandardize(), *aug]
+else:
+    batch_tfms = aug
 
 tfms = [None, [Categorize()]]
 dsets = TSDatasets(X, y, tfms=tfms, splits=splits, inplace=True)
@@ -94,8 +100,12 @@ learn = Learner(
 )
 learn.loss_func = FocalLoss(alpha=0.25, gamma=2.0)
 
-learn.load(args.load_model_name)
+learn.save_all(path='export_' + EXP_NAME, dls_fname='dls', model_fname='model', learner_fname='learner')
+
+# load pre-trained model or not
+if args.load_model_name != "0":
+    learn.load(args.load_model_name)
+
 learn.fit_one_cycle(N_EPOCH, lr_max=LR_MAX)
 learn.save(EXP_NAME)
-learn.save_all(path='export', dls_fname='dls', model_fname='model', learner_fname='learner')
 learn.show_results()
