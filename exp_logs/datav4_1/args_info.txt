@@ -1,0 +1,12 @@
+Time: 2023|05|27|19|30
+Exp name: datav4_1
+Args:
+exp_name: datav4_1
+root_data: data/dataset_TimeSeries_SlideWindow_cls_onlyEpi_v3
+log_folder: exp_logs
+load_model_name: AugRandAll_stage7
+lr_max: 0.001
+bs: 8192
+dropout: 0.3
+n_epoch: 120
+data_length: 40
